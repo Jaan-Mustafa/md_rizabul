@@ -1,14 +1,15 @@
 
 
-
+import { Logo } from "./logo"
+import { ThemeToggle } from "./theme-toggle"
 
 export function Header(){
     return (
-      <header className="flex">
-        <p className="text-black">Logos Ligos</p>
+      <header className="flex mb-5 md:mb-10 items-center text-black">
+        <Logo />
 
-        <nav>
-          <p className="text-black">Theme Toggle</p>
+        <nav className="font-mono text-xs grow justify-end items-center flex gap-1 md:gap-3">
+         <ThemeToggle/>
           <a
             href="https://github.com/Jaan_Mustafa"
             target="_blank"
