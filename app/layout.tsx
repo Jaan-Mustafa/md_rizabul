@@ -46,7 +46,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="dark:text-gray-100 max-w-2xl m-auto">
+      <body className="dark:text-gray-100 m-auto max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
           {children}
