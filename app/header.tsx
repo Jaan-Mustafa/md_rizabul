@@ -9,7 +9,7 @@ export function Header(){
         <Logo />
 
         <nav className="font-mono text-xs grow justify-end items-center flex gap-1 md:gap-3">
-         <ThemeToggle/>
+          <ThemeToggle />
           <a
             href="https://github.com/Jaan_Mustafa"
             target="_blank"
@@ -20,12 +20,20 @@ export function Header(){
           </a>
 
           <a
-            href="https://x.com/Jaan_Mustafa_"
+            href="https://x.com/Jaan-Mustafa_"
             target="_blank"
             className="inline-flex text-black  hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
           >
             <TweetIcon style={{ marginRight: 4 }} /> Follow{" "}
             <span className="hidden md:inline">&nbsp;me</span>
+          </a>
+          <a
+            href="http://localhost:3001/blog"
+            target="_blank"
+            className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
+          >
+            <BlogIcon style={{ marginRight: 4 }} />
+            <span className="hidden md:inline">Blog</span>
           </a>
         </nav>
       </header>
@@ -72,3 +80,21 @@ function TweetIcon(props: any) {
     </svg>
   )
 }
+
+
+function BlogIcon(props: any) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={16}
+      height={16}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M19 3H4a2 2 0 0 0-2 2v13h2v-2h15v2h2V5a2 2 0 0 0-2-2zM6 15H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V5h2v2zm13 8H8v-2h11v2zm0-4H8v-2h11v2zm0-4H8V5h11v2z" />
+    </svg>
+  )
+}
+
+
