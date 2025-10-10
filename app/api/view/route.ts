@@ -7,6 +7,7 @@ import { P } from "../../../reference/app/(post)/components/p";
 
 
 export async function GET(req:NextRequest){
+    console.log("hi this is from inside ") ; 
     // this code is to ? 
     const url = new URL(req.url) ; 
     const id= url.searchParams.get("id")??null ; 
