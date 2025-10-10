@@ -1,16 +1,14 @@
 
+import { Posts } from "./posts" ; 
+import { getPosts } from "../get-posts";
 
 
+export const revalidate=60 ; 
 
-export default  function Blog(){
+export default  async  function Blog(){
+  const posts= await getPosts() ; 
 
-    return (
-        <>
-          <div className="text-amber-300">
-
-        This is our  Blog Page 
-          </div>
-        
-        </>
-    )
+    return <Posts posts={posts}/>
+      
+  
 }
