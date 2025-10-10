@@ -1,2 +1,2 @@
 import { NextResponse } from "next/server";
-import {getPo}
+import {getPosts}

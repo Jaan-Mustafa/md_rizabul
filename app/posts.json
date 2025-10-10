@@ -1,0 +1,14 @@
+{
+  "posts": [
+    {
+      "id": "first_post",
+      "date": "Nov 19 , 2002",
+      "title": "Writing my first post "
+    },
+    {
+      "id": "second_post",
+      "date": "Dec 19 , 2002",
+      "title": "Writing my second post"
+    }
+  ]
+}
