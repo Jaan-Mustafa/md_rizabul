@@ -1,7 +1,7 @@
 // This file lets you customize MDX elements without using @mdx-js/react's provider
 // so it remains compatible with React Server Components.
 
-import type { MDXComponents } from "mdx/types";
+import type { MDXComponents } from "mdx/types"
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -30,7 +30,5 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     ...components,
-  };
+  }
 }
-
-
