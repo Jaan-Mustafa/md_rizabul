@@ -3,7 +3,7 @@ import postsData from "../../posts.json" ;
 import commaNumber from "comma-number" ; 
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import { P } from "../../../reference/app/(post)/components/p";
+// import { P } from "../../../reference/app/(post)/components/p";
 
 
 export async function GET(req:NextRequest){

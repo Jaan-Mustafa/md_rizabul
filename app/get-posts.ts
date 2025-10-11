@@ -30,4 +30,3 @@ export const getPosts = async  ()=>{
     return posts ; 
 }
 
-console.log(postsData.posts); 
