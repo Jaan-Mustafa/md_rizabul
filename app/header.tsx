@@ -28,7 +28,7 @@ export function Header(){
             <span className="hidden md:inline">&nbsp;me</span>
           </a>
           <a
-            href="http://localhost:3001/blog"
+            href="https://md-rizabul.vercel.app/blog"
             target="_blank"
             className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:text-white  items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
           >
