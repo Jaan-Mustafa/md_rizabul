@@ -5,7 +5,7 @@ import { ThemeToggle } from "./theme-toggle"
 
 export function Header(){
     return (
-      <header className="flex mb-5 md:mb-10 items-center text-black">
+      <header className="flex mb-5 md:mb-10 items-center text-black dark:text-white">
         <Logo />
 
         <nav className="font-mono text-xs grow justify-end items-center flex gap-1 md:gap-3">
@@ -13,16 +13,16 @@ export function Header(){
           <a
             href="https://github.com/Jaan_Mustafa"
             target="_blank"
-            className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
+            className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#474646] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2 dark:text-gray-100"
           >
             <GithubIcon style={{ marginRight: 4 }} />
-            <span className="hidden md:inline">Github </span>
+            <span className="hidden md:inline ">Github </span>
           </a>
 
           <a
             href="https://x.com/Jaan-Mustafa_"
             target="_blank"
-            className="inline-flex text-black  hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
+            className="inline-flex text-black  hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:text-white items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
           >
             <TweetIcon style={{ marginRight: 4 }} /> Follow{" "}
             <span className="hidden md:inline">&nbsp;me</span>
@@ -30,7 +30,7 @@ export function Header(){
           <a
             href="http://localhost:3001/blog"
             target="_blank"
-            className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
+            className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:text-white  items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
           >
             <BlogIcon style={{ marginRight: 4 }} />
             <span className="hidden md:inline">Blog</span>
