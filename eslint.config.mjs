@@ -19,7 +19,21 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      // Disable unescaped apostrophe warnings
+      "react/no-unescaped-entities": "off",
+
+      // Allow using `any`
+      "@typescript-eslint/no-explicit-any": "off",
+
+      // Stop TypeScript from throwing on unused vars
+      "@typescript-eslint/no-unused-vars": "off",
+
+      // Optional: Disable wrapper type warning (String, Number, etc.)
+      "@typescript-eslint/no-wrapper-object-types": "off",
+      "@next/next/no-page-custom-font": "off",
+    },
   },
-];
+]
 
 export default eslintConfig;

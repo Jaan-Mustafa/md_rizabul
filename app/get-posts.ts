@@ -5,7 +5,7 @@ import commaNumber from "comma-number"
 
 
 export type Post = {
-    id : String ; 
+    id : string ; 
     date : string ; 
     title : string ; 
     views : number ; 
