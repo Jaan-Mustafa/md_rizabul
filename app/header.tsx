@@ -9,7 +9,6 @@ export function Header(){
         <Logo />
 
         <nav className="font-mono text-xs grow justify-end items-center flex gap-1 md:gap-3">
-          
           <a
             href="https://github.com/Jaan_Mustafa"
             target="_blank"
@@ -28,7 +27,7 @@ export function Header(){
             <span className="hidden md:inline">&nbsp;me</span>
           </a>
           <a
-            href="http://localhost:3001/blog"
+            href="https://md-rizabul.vercel.app/blog"
             target="_blank"
             className="inline-flex text-black hover:bg-gray-200 dark:hover:bg-[#9b9999] active:bg-gray-300 dark:text-gray-900  items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
           >
