@@ -6,7 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import { Header } from "./header"
 import { Footer } from "./footer"
 import { Inter } from "next/font/google"
-import { themeEffect } from "./theme-result"
+import { themeEffect } from "./theme-effect"
 
 const inter = Inter({subsets:["latin"]}) ; 
 
@@ -40,13 +40,13 @@ export default function RootLayout({
     >
       <head>
         <script
-          // dangerouslySetInnerHTML={{
-          //   __html: `(${themeEffect.toString()})();(${doge.toString()})();`,
-          // }}
+          dangerouslySetInnerHTML={{
+            __html: `(${themeEffect.toString()})()`,
+          }}
         />
       </head>
 
-      <body className="dark:text-gray-100 m-auto max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
+      <body className="m-auto max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl dark:text-gray-100">
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
           {children}

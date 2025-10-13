@@ -8,19 +8,20 @@ export default function Home() {
   return (
     <main className="max-w-2xl font-mono m-auto mb-10 text-sm">
       <header className="text-black dark:text-gray-600 flex items-center text-xs mb-6">
-        <span className="w-12 h-9 text-left">type</span>
+        {/* <span className="w-12 h-9 text-left">type</span>
         <span className="grow pl-2">content</span>
-        <span className="text-black dark:text-black text-xs">status</span>
+        <span className="text-black dark:text-black text-xs">status</span> */}
       </header>
 
       <ul>
         <li>
-          <div className="flex transition-[background-color] hover:bg-gray-100 dark:hover:bg-[#242424] active:bg-gray-200 dark:active:bg-[#222] border-y border-gray-200 dark:border-[#313131]">
+          
+          <div className="flex transition-[background-color]  active:bg-gray-200 dark:active:bg-[#763a3a] border-y border-gray-200 dark:border-[#313131]">
             <div className="py-3 flex grow items-center">
               <span className="w-14 inline-block self-start shrink-0 text-black dark:text-black">
-                about
+                About
               </span>
-              <div className="grow text-black dark:text-black">
+              <div className="grow  dark:text-blue-800">
                 <Desc />
               </div>
             </div>

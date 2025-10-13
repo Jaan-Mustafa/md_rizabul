@@ -1,11 +1,13 @@
 "use client"
-
 import { useEffect, useState, useCallback } from "react"
-import { themeEffect } from "./theme-result"
+import { themeEffect } from "./theme-effect"
 import va from "@vercel/analytics"
 
 export function ThemeToggle() {
-  const [preference, setPreference] = useState<string | null>(null)
+  // a `null` preference implies auto
+  const [preference, setPreference] = useState<undefined | null | string>(
+    undefined
+  )
   const [currentTheme, setCurrentTheme] = useState<null | string>(null)
   const [isHovering, setIsHovering] = useState(false)
   const [isHoveringOverride, setIsHoveringOverride] = useState(false)
@@ -16,24 +18,24 @@ export function ThemeToggle() {
   }, [])
 
   useEffect(() => {
-    try {
-      setPreference(localStorage.getItem("theme"))
-      const current = themeEffect()
-      setCurrentTheme(current)
-      const matchMedia = window.matchMedia("(prefers-color-scheme:dark)")
-      matchMedia.addEventListener("change", onMediaChange)
-      return () => matchMedia.removeEventListener("change", onMediaChange)
-    } catch (error) {
-      console.error("Error in themeEffect:", error)
-    }
+    setPreference(localStorage.getItem("theme"))
+    const current = themeEffect()
+    setCurrentTheme(current)
+
+    const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
+    matchMedia.addEventListener("change", onMediaChange)
+    return () => matchMedia.removeEventListener("change", onMediaChange)
   }, [onMediaChange])
 
-  const onStorageChange = useCallback((event: StorageEvent) => {
-    if (event.key === "theme") {
-      setPreference(event.newValue)
-    }
-  }, [])
+  const onStorageChange = useCallback(
+    (event: StorageEvent) => {
+      if (event.key === "theme") setPreference(event.newValue)
+    },
+    [setPreference]
+  )
 
+  // when the preference changes, whether from this tab or another,
+  // we want to recompute the current theme
   useEffect(() => {
     setCurrentTheme(themeEffect())
   }, [preference])
@@ -41,7 +43,7 @@ export function ThemeToggle() {
   useEffect(() => {
     window.addEventListener("storage", onStorageChange)
     return () => window.removeEventListener("storage", onStorageChange)
-  }, [onStorageChange])
+  })
 
   return (
     <>
@@ -51,7 +53,10 @@ export function ThemeToggle() {
             text-[9px]
             text-gray-400
             mr-[-5px]
+
+            /* mobile */
             hidden
+
             md:inline
           `}
         >
@@ -63,31 +68,27 @@ export function ThemeToggle() {
         </span>
       )}
 
+      {/*
+        the `theme-auto:` plugin is registered in `tailwind.config.js` and
+        works similarly to the `dark:` prefix, which depends on the `theme-effect.ts` behavior
+      */}
       <button
-        aria-label={`Switch to ${
-          currentTheme === "dark" ? "light" : "dark"
-        } theme`}
-        className={`
-          inline-flex
-          ${
-            isHovering && !isHoveringOverride
-              ? "bg-gray-200 dark:bg-[#313131]"
-              : ""
-          }
-          active:bg-gray-300
-          transition-[background-color]
-          dark:active:bg-[#242424]
-          rounded-sm
-          p-2
+        aria-label="Toggle theme"
+        className={`inline-flex ${
+          isHovering && !isHoveringOverride
+            ? "bg-gray-200 dark:bg-[#313131]"
+            : ""
+        } active:bg-gray-300 transition-[background-color] dark:active:bg-[#242424] rounded-sm p-2 
           bg-gray-200
           dark:bg-[#313131]
           theme-system:!bg-inherit
           [&_.sun-icon]:hidden
           dark:[&_.moon-icon]:hidden
           dark:[&_.sun-icon]:inline
-        `}
+        }`}
         onClick={(ev) => {
           ev.preventDefault()
+          // prevent the hover state from rendering
           setIsHoveringOverride(true)
 
           let newPreference: string | null =
@@ -97,6 +98,8 @@ export function ThemeToggle() {
             ? "dark"
             : "light"
 
+          // if the user has their current OS theme as a preference (instead of auto)
+          // and they click the toggle, we want to switch to reset the preference
           if (preference !== null && systemTheme === currentTheme) {
             newPreference = null
             localStorage.removeItem("theme")
@@ -126,7 +129,6 @@ export function ThemeToggle() {
     </>
   )
 }
-
 
 function MoonIcon(props: any) {
   return (

@@ -18,7 +18,9 @@ export function Logo(){
             // aur agar dusre page pe he to clickable hoga 
           <Link
             href="/"
-            className="hover:bg-gray-200 dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#242424] p-2 rounded-sm -ml-2 transition-[background-color]"
+            className="hover:bg-gray-200
+            dark:text-amber-300
+             dark:hover:bg-[#313131] active:bg-gray-300 dark:active:bg-[#4b1c1c] p-2 rounded-sm -ml-2 transition-[background-color]"
           >
             Md Rizabul
           </Link>

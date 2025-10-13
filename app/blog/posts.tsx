@@ -98,7 +98,7 @@ function List({ posts, sort }) {
           <li key={post.id}>
             <Link href={`/blog/${new Date(post.date).getFullYear()}/${post.id}`}>
               <span
-                className={`flex transition-[background-color] hover:bg-gray-100 dark:hover:bg-[#242424] active:bg-gray-200 dark:active:bg-[#222] border-y border-gray-200 dark:border-[#313131]
+                className={`flex transition-[background-color] hover:bg-gray-100 dark:hover:bg-[#ae7e7e] active:bg-gray-200 dark:active:bg-[#222] border-y border-gray-200 dark:border-[#313131]
                 ${!firstOfYear ? "border-t-0" : ""}
                 ${lastOfYear ? "border-b-0" : ""}
               `}
