@@ -20,7 +20,7 @@ export function Header(){
           </a>
 
           <a
-            href="https://x.com/Jaan-Mustafa_"
+            href="https://x.com/Jaan_Mustafa_"
             target="_blank"
             className="inline-flex text-black  hover:bg-gray-200 dark:hover:bg-[#9b9999] active:bg-gray-300 dark:text-gray-900 items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
           >
