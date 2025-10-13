@@ -1,0 +1,232 @@
+"use client"
+Types of Load Balancers (Explained for Devs & Engineers)
+
+Load balancers aren’t just about “spreading traffic.” The type you choose controls how requests are routed, what layer they work on, and how much control you get. Here’s a breakdown based on how they’re used in real systems.
+
+🔹 1. Layer 4 Load Balancers (Transport Layer)
+
+These operate at the TCP/UDP level. They don’t care about HTTP, cookies, or headers — they just forward packets based on IP and port.
+
+How it works:
+
+Looks at source/destination IP + port
+
+Routes traffic to backend instances
+
+Examples:
+
+AWS NLB
+
+HAProxy (L4 mode)
+
+LVS (Linux Virtual Server)
+
+F5 (L4 mode)
+
+Use when:
+
+You need very high performance / low latency
+
+You’re handling TCP/UDP services (gRPC, game servers, VoIP, etc.)
+
+You don’t need to inspect HTTP headers or URLs
+
+🔹 2. Layer 7 Load Balancers (Application Layer)
+
+These understand HTTP/HTTPS and can inspect the content of requests.
+
+They can do things like:
+
+Route by URL path (/api vs /admin)
+
+Route by hostname (example.com vs api.example.com)
+
+Add/modify headers
+
+Handle sticky sessions or JWT headers
+
+Terminate SSL/TLS
+
+Examples:
+
+AWS ALB
+
+NGINX
+
+Apache HTTP Server
+
+Traefik
+
+Envoy
+
+HAProxy (L7 mode)
+
+Use when:
+
+You're routing microservices by URL
+
+You need SSL termination
+
+You do canary releases / A/B testing
+
+You want sticky sessions
+
+🔹 3. Hardware Load Balancers
+
+Physical, enterprise-grade devices used by banks, telecoms, and on-prem data centers.
+
+Vendors:
+
+F5
+
+Citrix ADC
+
+Radware
+
+Why use them?
+
+Extremely high throughput
+
+Built-in DDoS protection
+
+Guaranteed uptime (SLA)
+
+Legacy infrastructure
+
+Downside: Expensive and less flexible than cloud/software options.
+
+🔹 4. Software Load Balancers
+
+Deployed on VMs, containers, or bare metal. More flexible and DevOps-friendly.
+
+Popular tools:
+
+NGINX
+
+HAProxy
+
+Traefik
+
+Envoy
+
+Caddy
+
+Apache
+
+Use when:
+
+You're running on-prem or hybrid
+
+You want full config control
+
+You’re integrating with Kubernetes or Docker
+
+🔹 5. Global Server Load Balancers (GSLB / Anycast / Geo Load Balancing)
+
+These handle traffic across multiple regions or data centers.
+
+They decide routing based on:
+
+User’s geographic location
+
+Latency
+
+Availability of regions
+
+Disaster recovery
+
+Examples:
+
+AWS Route 53 latency/geo routing
+
+Cloudflare Load Balancer
+
+Google Cloud Cloud DNS + Traffic Director
+
+Azure Traffic Manager
+
+NS1
+
+Use when:
+
+You're serving users globally
+
+You need regional failover
+
+Multi-cloud or multi-data center setup
+
+🔹 6. DNS Load Balancing
+
+This isn’t “real-time” routing — it answers DNS queries with different IPs to spread the load.
+
+Pros:
+
+Simple and cheap
+
+Works at large scale
+
+Cons:
+
+Slow failover due to DNS caching
+
+No health checks at the connection level
+
+Examples:
+
+AWS Route 53
+
+Cloudflare DNS
+
+Akamai DNS
+
+🔹 7. Reverse Proxy as Load Balancer
+
+This is common in modern apps — a reverse proxy routes incoming traffic to internal services.
+
+Examples:
+
+NGINX
+
+Traefik
+
+Apache
+
+Envoy
+
+Caddy
+
+Use when:
+
+You need API gateway behavior
+
+TLS termination
+
+URL rewriting
+
+Authentication / JWT / OAuth
+
+🔹 8. Service Mesh Load Balancers (Intra-cluster)
+
+Used inside Kubernetes or microservice architectures.
+
+These don’t sit outside your app — they run as sidecars or part of the service mesh.
+
+Examples:
+
+Istio + Envoy
+
+Linkerd
+
+Consul Connect
+
+Kuma
+
+Use when:
+
+You want mTLS between services
+
+Circuit breaking, retries, traffic shadowing
+
+Traffic splitting (canary releases)
+
+Automatic service discovery

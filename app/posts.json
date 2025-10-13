@@ -1,14 +1,14 @@
 {
   "posts": [
     {
-      "id": "first_post",
+      "id": "When-to-Use-SQL-vs-NoSQ",
       "date": "Nov 19 , 2003",
-      "title": "Writing my second post -  "
+      "title": "A Practical Perspective for Developers : When to Use SQL vs NoSQL "
     },
     {
-      "id": "second_post",
+      "id": "Types-of-Load-Balancers",
       "date": "Dec 19 , 2002",
-      "title": "Writing my first post + "
+      "title": "Load balancers aren’t just about “spreading traffic.” The type you choose controls how requests are routed, what layer they work on, and how much control you get "
     }
   ]
 }
